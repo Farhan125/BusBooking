@@ -1,0 +1,23 @@
+<%= form_for @bus, url: {action: :create} do |f| %>   
+        
+        <h3>Add Bus</h3>   
+  
+       <div class="field">   
+       <br>
+         <%= f.label :Details %>  
+       <br> 
+       <br>
+         <%= f.text_field :bus_no ,:placeholder=> 'Bus Number', :required => true,:unique => true %>   
+         <%= f.text_field :total_seats ,:placeholder=> 'Total Seats', :required => true %>
+         <%= collection_select(:bus, :company_id, Company.all, :id, :name,prompt:true,required:true) %>   
+       </div>
+
+      <div class="actions">  
+        <br> 
+        <%= f.submit 'Add Bus' %>   
+        <br>
+        <br>
+        
+      </div>   
+  <% end %>   
+</div>  

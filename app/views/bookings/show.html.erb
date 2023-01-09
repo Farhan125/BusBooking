@@ -1,0 +1,38 @@
+ <%= link_to 'Back', { controller: 'welcome', action: 'adminhome'} %>  
+      <br> 
+      <table class="table table-bordered table-striped">   
+       <tr>   
+        <th>ID</th>   
+        <th>User Name</th>
+        <th>User Cnic</th>
+        <th>User Email</th>
+        <th>Booking Route</th>
+        <th>Bus No</th>
+        <th>Seat No</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>   
+        <th>Price</th>
+        <th>Delete Booking</th>
+       
+        <br>
+      </tr>   
+       
+       <% @booking_list.each do |list| %>   
+          <tr>   
+            <td><%= list.id %></td>   
+            <td><%= list.user_name %></td>
+            <td><%= list.user_cnic %></td>
+            <td><%= list.user_email%></td>
+            <td><%= list.confirmed_route.route.name %></td>
+            <td><%= list.confirmed_route.bus.bus_no %></td>
+            <td><%= list.seat_no %></td>
+            <td><%= list.confirmed_route.dep_time %></td>
+            <td><%= list.confirmed_route.arr_time %></td>
+            <td><%= list.confirmed_route.price %></td>
+       
+             <td><%= button_to "Delete", list, method: :delete %></td>
+           
+              
+           </tr>   
+      <% end %>   
+    </table>

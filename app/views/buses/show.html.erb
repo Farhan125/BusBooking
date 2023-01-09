@@ -1,0 +1,33 @@
+<h3>Buses List</h3>   
+      
+      <div>   
+        <%= link_to 'Add New Bus', '/buses/new' %>   
+      </div>   
+      <br>   
+     <%= link_to 'Back', { controller: 'welcome', action: 'adminhome'} %>  
+      <br> 
+     <table class="table table-bordered table-striped">   
+       <tr>   
+        <th>ID</th>   
+        <th>Bus No</th>
+        <th>Total Seats</th>
+        <th>Company Name</th>   
+        <th>Status </th>
+        <th>Delete Bus</th>
+       
+        <br>
+      </tr>   
+       
+      <% @bus_list.each do |bus| %>   
+          <tr>   
+            <td><%= bus.id %></td>   
+            <td><%= bus.bus_no %></td>
+            <td><%= bus.total_seats %></td>
+            <td><%= bus.company.name %></td>
+            <td><%= bus.status %></td>
+             <td><%= button_to "Delete", bus, method: :delete %></td>
+           
+              
+           </tr>   
+      <% end %>   
+    </table>

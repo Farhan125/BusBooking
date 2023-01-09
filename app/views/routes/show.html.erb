@@ -1,0 +1,30 @@
+<h3>Routes List</h3>   
+      
+      <div>   
+        <%= link_to 'Add New Route', '/routes/new' %>   
+      </div>   
+      <br>   
+     <%= link_to 'Back', { controller: 'welcome', action: 'adminhome'} %>  
+      <br> 
+     <table class="table table-bordered table-striped">   
+       <tr>   
+        <th>ID</th>   
+        <th>Name</th>
+        <th>Departure</th>
+        <th>Arrival</th>
+        <th>Delete Route</th>   
+
+        <br>
+      </tr>   
+       
+      <% @route_list.each do |route| %>   
+          <tr>   
+            <td><%= route.id %></td>   
+            <td><%= route.name %></td>
+            <td><%= route.departure %></td>
+            <td><%= route.arrival %></td>
+            <td><%= button_to "Delete", route, method: :delete %></td>
+  
+           </tr>   
+      <% end %>   
+    </table>

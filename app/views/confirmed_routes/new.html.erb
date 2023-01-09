@@ -1,0 +1,32 @@
+<%= form_for @confirmed_route, url: {action: :create} do |f| %>   
+        
+        <h3>Add Bus to Route</h3>   
+  
+       <div class="field">   
+       <br>
+         <%= f.label :Details %>  
+       <br> 
+       <br>
+       <th>Date For Route</th>
+        <td> <%= date_field(:confirmed_route, :date, :required => true ) %></td><br><br>
+        <th>Departure Time</th>
+         <%= f.time_field :dep_time ,:placeholder=> 'Departure Time', :required => true %> <br> <br>
+        <th>Arrival Time</th>
+         <%= f.time_field :arr_time ,:placeholder=> 'Arrival Time', :required => true %> <br> <br>
+         <th>Bus on this route</th>
+         <%= collection_select(:confirmed_route, :bus_id, Bus.where(status: 0), :id, :bus_no,prompt:true,required:true) %><br><br>
+         <th>Set Route</th>
+         <%= collection_select(:confirmed_route, :route_id, Route.all, :id, :name,prompt:true,required:true) %><br><br>
+         <th>Price</th>
+         <%= f.text_field :price,:placeholder=> 'Price',:required => true%>  
+       </div>
+
+      <div class="actions">  
+        <br> 
+        <%= f.submit 'Add Bus to Route' %>   
+        <br>
+        <br>
+        
+      </div>   
+  <% end %>   
+</div>  

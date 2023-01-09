@@ -1,0 +1,40 @@
+<h3>Confirmed Routes List</h3>   
+      
+      <div>   
+        <%= link_to 'Add New Bus to Route', '/confirmed_routes/new' %>   
+      </div>   
+      <br>   
+     <%= link_to 'Back', { controller: 'welcome', action: 'adminhome'} %>  
+      <br> 
+     <table class="table table-bordered table-striped">   
+       <tr>   
+        <th>ID</th>   
+        <th>Date</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>   
+        <th>Bus Company</th>
+        <th>Bus Number</th>
+        <th>Available Seats</th>
+        <th>Route Name</th>
+        <th>Price</th>
+       
+        <br>
+      </tr>   
+       
+      <% @confirmed_routes_list.each do |confirm| %>   
+          <tr>   
+            <td><%= confirm.id %></td>   
+            <td><%= confirm.date %></td>
+            <td><%= confirm.dep_time %></td>
+            <td><%= confirm.arr_time %></td>
+            <td><%= confirm.bus.company.name %></td>
+            <td><%= confirm.bus.bus_no %></td>
+            <td><%= confirm.bus.available_seat%></td>
+            <td><%= confirm.route.name %></td>
+            <td><%= confirm.price %></td>
+            <td><%= button_to "Delete", confirm, method: :delete %></td>
+           
+              
+           </tr>   
+      <% end %>   
+    </table>

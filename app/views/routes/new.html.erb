@@ -1,0 +1,25 @@
+<%= form_for @route, url: {action: :create} do |f| %>   
+        
+        <h3>Add Route</h3>   
+  
+       <div class="field">   
+       <br>
+         <%= f.label :Details %>  
+       <br> 
+       <br>
+         <%= f.text_field :name ,:placeholder=> 'Route Name', :required => true,:unique => true %>   
+         <%= f.text_field :departure ,:placeholder=> 'Departure', :required => true %>
+         <%= f.text_field :arrival ,:placeholder=> 'Arrival', :required => true %>  
+        
+         
+       </div>
+
+      <div class="actions">  
+        <br> 
+        <%= f.submit 'Add Route' %>   
+        <br>
+        <br>
+        
+      </div>   
+  <% end %>   
+</div>  

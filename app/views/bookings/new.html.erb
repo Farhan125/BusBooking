@@ -1,0 +1,49 @@
+<%= form_for @user, url: {action: :create} do |f| %>   
+        
+       <h3>For Booking</h3>   
+       <%= link_to "Logout", destroy_user_session_path , data: {turbo_method: :delete} %>
+       <div class="field">   
+       <br>
+         <%= f.label :Details %>  
+       <br> 
+       <br>
+         <%= f.text_field :user_name ,:placeholder=> 'Your Full Name', :required => true %> <br><br>
+         <%= f.text_field :user_cnic ,:placeholder=> 'Cnic', :required => true,:unique => true %> <br><br>
+         <%= f.hidden_field :confirmed_route_id, value: $route.first.id %>
+         <%= f.hidden_field :user_email, value: current_user.email %>
+        
+         <%
+=begin%>
+ <%= collection_select(:seat_no, :bus_id, Bus.all, :id, :available_seat,prompt:true,required:true) %>   
+          
+<%
+=end%>
+      </div>
+      <table class="table table-bordered table-striped">   
+       <tr>     
+        <th>Bus Number</th>
+        <th>Route</th>  
+        <th>Departure Time </th>
+        <th>Arrival Time</th>
+        <th>Price</th>
+        <br>
+       </tr>   
+      <% $route.each do |r| %>   
+         <tr>   
+            <td><%= r.bus.bus_no %></td>
+            <td><%= r.route.name %></td>
+            <td><%= r.dep_time %></td>
+            <td><%= r.arr_time %></td>
+            <td><%= r.price %></td>
+          </tr>   
+      <% end %>  
+    </table>
+      <div class="actions">  
+        <br> 
+        <%= f.submit 'Proceed' %>   
+        <br>
+        <br>        
+      </div>   
+  <% end %>   
+</div>  
+    

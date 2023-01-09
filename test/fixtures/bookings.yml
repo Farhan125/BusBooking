@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_name: MyString
+  user_cnic: 1
+  user_email: MyString
+  route_name: MyString
+  bus_no: MyString
+  dep_time: 2022-12-26 12:02:26
+  arr_time: 2022-12-26 12:02:26
+  seat_no: 1
+  confirmed_route: one
+
+two:
+  user_name: MyString
+  user_cnic: 1
+  user_email: MyString
+  route_name: MyString
+  bus_no: MyString
+  dep_time: 2022-12-26 12:02:26
+  arr_time: 2022-12-26 12:02:26
+  seat_no: 1
+  confirmed_route: two

@@ -1,0 +1,28 @@
+<%= form_with scope: :userhomepage, url: '/userhomepages/search' do |f| %>
+  <h3>Welcome To Bus Booking Service</h3> 
+  <table class="table table-bordered table-striped"> 
+<tr> 
+    <div class="field">   
+       <br>
+         <%= f.label :Details %>  
+       <br> 
+       <br>
+       <th>Service</th>
+       <td> <%= collection_select(:confirmed_route, :company_id, Company.all, :id, :name,prompt:true,required:true) %> </td>
+       <th>Departure</th>
+       <td> <%= collection_select(:confirmed_route, :route_id, Route.all, :id, :departure,prompt:true,required:true) %> </td>
+       <th>Arrival</th>
+       <td> <%= collection_select(:confirmed_route, :route_id, Route.all, :id, :arrival,prompt:true,required:true) %> </td>
+       <th>Date</th>
+       <td> <%= date_field(:confirmed_route, :date , required: true) %> </td>
+       </div>
+
+</tr>
+</table>
+      <div class="actions">  
+        <br> 
+        <%= f.submit 'Search' %>   
+        <br>
+        <br>
+      </div>   
+<% end %>

@@ -1,0 +1,38 @@
+    <h3>Search List</h3>  
+    
+     <table class="table table-bordered table-striped">   
+       <tr>   
+        
+        <th>Date</th>
+        <th>Company</th>
+        <th>Bus No</th>   
+        <th>Departure From</th>
+        <th>Arrival To</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>   
+        <th>Price</th>
+        
+       
+        <br>
+      </tr>   
+       
+      <% $route.each do |r| %>   
+          <tr> 
+            <td><%= r.date %></td>
+            <td><%= r.bus.company.name%></td>
+            <td><%= r.bus.bus_no %></td>
+            <td><%= r.route.departure %></td>
+            <td><%= r.route.arrival %></td>
+            <td><%= r.dep_time %></td>
+            <td><%= r.arr_time %></td>
+            <td><%= r.price %></td>
+            <td><% if user_signed_in? %>
+            <%= link_to "Book", new_booking_path %>
+            <% else %>
+            <%= link_to "Book", new_user_session_path %>
+            <% end %>
+            </td> 
+
+           </tr>   
+      <% end %>   
+    </table>

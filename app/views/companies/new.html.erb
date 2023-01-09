@@ -1,0 +1,20 @@
+<%= form_for @company, url: {action: :create} do |f| %>   
+        
+        <h3>Add Company</h3>   
+  
+       <div class="field">   
+       <br>
+         <%= f.label :name %>  
+       <br> 
+         <%= f.text_field :name ,:placeholder=> 'Company Name', :required => true %>   
+       </div>
+
+      <div class="actions">  
+        <br> 
+        <%= f.submit 'Create Company' %>   
+        <br>
+<br>
+        
+      </div>   
+  <% end %>   
+</div>  
